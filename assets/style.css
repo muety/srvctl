@@ -1,0 +1,73 @@
+html {
+    height: 100%;
+}
+
+body {
+    background: #1A202C;
+    color: #F7FAFC;
+    font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+}
+
+button {
+    cursor: pointer;
+}
+
+.flex {
+    display: flex;
+}
+
+.flex-col {
+    flex-direction: column;
+}
+
+.flex-grow {
+    flex-grow: 1;
+}
+
+.justify-center {
+    justify-content: center;
+}
+
+.items-center {
+    align-items: center;
+}
+
+.my-1 {
+    margin: 10px 0;
+}
+
+.mb-4 {
+    margin-bottom: 40px;
+}
+
+.p-1 {
+    padding: 10px;
+}
+
+.p-2 {
+    padding: 20px;
+}
+
+.hidden {
+    display: none;
+}
+
+.bg-success {
+    background: #68D391;
+    color: #2F855A;
+    border: 2px solid #2F855A;
+}
+
+.bg-danger {
+    background: #FC8181;
+    color: #C53030;
+    border: 2px solid #C53030;
+}
+
+.rounded {
+    border-radius: 5px;
+}
+
+.text-center {
+    text-align: center;
+}
