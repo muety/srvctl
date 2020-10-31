@@ -2,8 +2,8 @@
 
 namespace Actions\Fail2Ban;
 
-class WhitelistMeAction implements \Actions\Action {
-    public static $name = "fail2ban_whitelist_me";
+class UnignoreMeAction implements \Actions\Action {
+    public static $name = "fail2ban_unignore_me";
 
     private $ip = "";
 
@@ -43,7 +43,7 @@ class WhitelistMeAction implements \Actions\Action {
         }
 
         foreach ($jails as $jail) {
-            $cmd = "sudo " . FAIL2BAN_PROG . " set " . $jail . " addignoreip " . $this->ip;
+            $cmd = "sudo " . FAIL2BAN_PROG . " set " . $jail . " delignoreip " . $this->ip;
             $output = [];
             $code = -1;
 

@@ -31,8 +31,15 @@
 
                     <div class="my-1">
                         <form action="" method="post">
-                            <input type="hidden" name="action" value="fail2ban_whitelist_me"/>
-                            <button type="submit">Whitelist my IP</button>
+                            <input type="hidden" name="action" value="fail2ban_ignore_me"/>
+                            <button type="submit">Ignore my IP</button>
+                        </form>
+                    </div>
+
+                    <div class="my-1">
+                        <form action="" method="post">
+                            <input type="hidden" name="action" value="fail2ban_unignore_me"/>
+                            <button type="submit">Unignore my IP</button>
                         </form>
                     </div>
 

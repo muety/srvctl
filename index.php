@@ -2,7 +2,8 @@
 
 require_once("globals.php");
 require_once("actions/action.php");
-require_once("actions/fail2ban/whitelist_me.php");
+require_once("actions/fail2ban/ignore_me.php");
+require_once("actions/fail2ban/unignore_me.php");
 require_once("actions/fail2ban/unban_me.php");
 require_once("actions/fail2ban/unban_all.php");
 
@@ -24,8 +25,11 @@ switch ($actionName) {
     case \Actions\Fail2Ban\UnbanAllAction::$name:
         $action = new \Actions\Fail2Ban\UnbanAllAction();
         break;
-    case \Actions\Fail2Ban\WhitelistMeAction::$name:
-        $action = new \Actions\Fail2Ban\WhitelistMeAction($clientIp);
+    case \Actions\Fail2Ban\IgnoreMeAction::$name:
+        $action = new \Actions\Fail2Ban\IgnoreMeAction($clientIp);
+        break;
+    case \Actions\Fail2Ban\UnignoreMeAction::$name:
+        $action = new \Actions\Fail2Ban\UnignoreMeAction($clientIp);
         break;
 }
 
