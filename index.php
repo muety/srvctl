@@ -6,6 +6,7 @@ require_once("actions/fail2ban/whitelist_me.php");
 require_once("actions/fail2ban/unban_me.php");
 require_once("actions/fail2ban/unban_all.php");
 
+$phpVersion = phpversion();
 $clientIp = $_SERVER['REMOTE_ADDR'];
 
 // View variables

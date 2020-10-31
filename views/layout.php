@@ -13,13 +13,13 @@
                 <h1>⚙️ SrvCtl</h1>
             </header>
 
-            <div class="<? echo $successAlert != '' ? 'block' : 'hidden'; ?> mb-4 flex">
+            <div class="<?php echo $successAlert != '' ? 'block' : 'hidden'; ?> mb-4 flex">
                 <div class="flex-grow bg-success p-1 rounded text-center">
                     <strong>Success!</strong> <?= $successAlert ?>
                 </div>
             </div>
 
-            <div class="<? echo $dangerAlert != '' ? 'block' : 'hidden'; ?> mb-4 flex">
+            <div class="<?php echo $dangerAlert != '' ? 'block' : 'hidden'; ?> mb-4 flex">
                 <div class="flex-grow bg-danger p-1 rounded text-center">
                     <strong>Error!</strong> <?= $dangerAlert ?>
                 </div>
@@ -52,8 +52,9 @@
                 </section>
             </main>
 
-            <footer>
-                Your IP is <?= $clientIp ?>
+            <footer class="text-sm text-center">
+                IP: <?= $clientIp ?><br>
+                PHP: <?= $phpVersion ?>
             </footer>
         </div>
     </body>
