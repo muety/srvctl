@@ -26,10 +26,10 @@ switch ($actionName) {
     case \Actions\Fail2Ban\UnbanAllAction::$name:
         $action = new \Actions\Fail2Ban\UnbanAllAction($actionArgs);
         break;
-    case \Actions\Fail2Ban\IgnoreMeAction::$name:
+    case \Actions\Fail2Ban\IgnoreIpAction::$name:
         $action = new \Actions\Fail2Ban\IgnoreIpAction($actionArgs);
         break;
-    case \Actions\Fail2Ban\UnignoreMeAction::$name:
+    case \Actions\Fail2Ban\UnignoreIpAction::$name:
         $action = new \Actions\Fail2Ban\UnignoreIpAction($actionArgs);
         break;
 }

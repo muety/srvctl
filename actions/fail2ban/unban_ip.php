@@ -7,7 +7,7 @@ class UnbanIpAction implements \Actions\Action {
     
     private $ip = "";
 
-    function __construct($ip) {
+    function __construct($args) {
         if (count($args) != 1 || !filter_var($args[0], FILTER_VALIDATE_IP)) {
             throw new Exception("invalid arguments");
         }
