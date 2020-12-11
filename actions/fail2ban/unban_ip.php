@@ -2,13 +2,16 @@
 
 namespace Actions\Fail2Ban;
 
-class UnbanMeAction implements \Actions\Action {
-    public static $name = "fail2ban_unban_me";
+class UnbanIpAction implements \Actions\Action {
+    public static $name = "fail2ban_unban_ip";
     
     private $ip = "";
 
     function __construct($ip) {
-        $this->ip = $ip;
+        if (count($args) != 1 || !filter_var($args[0], FILTER_VALIDATE_IP)) {
+            throw new Exception("invalid arguments");
+        }
+        $this->ip = $args[0];
     }
 
     public function run() {

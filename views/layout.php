@@ -35,24 +35,55 @@
 
                     <div class="my-1">
                         <form action="" method="post">
-                            <input type="hidden" name="action" value="fail2ban_ignore_me"/>
-                            <button type="submit">Ignore my IP</button>
+                            <input type="hidden" name="action" value="fail2ban_ignore_ip"/>
+                            <input type="hidden" name="args[]" value="" class="ip4-input"/>
+                            <button type="submit">Ignore my IPv4</button>
                         </form>
                     </div>
 
                     <div class="my-1">
                         <form action="" method="post">
-                            <input type="hidden" name="action" value="fail2ban_unignore_me"/>
-                            <button type="submit">Unignore my IP</button>
+                            <input type="hidden" name="action" value="fail2ban_unignore_ip"/>
+                            <input type="hidden" name="args[]" value="" class="ip4-input"/>
+                            <button type="submit">Unignore my IPv4</button>
                         </form>
                     </div>
 
                     <div class="my-1">
                         <form action="" method="post">
-                            <input type="hidden" name="action" value="fail2ban_unban_me"/>
-                            <button type="submit">Unban my IP</button>
+                            <input type="hidden" name="action" value="fail2ban_unban_ip"/>
+                            <input type="hidden" name="args[]" value="" class="ip4-input"/>
+                            <button type="submit">Unban my IPv4</button>
                         </form>
                     </div>
+
+                    <div style="margin-bottom: 30px;"></div>
+
+                    <div class="my-1">
+                        <form action="" method="post">
+                            <input type="hidden" name="action" value="fail2ban_ignore_ip"/>
+                            <input type="hidden" name="args[]" value="" class="ip6-input"/>
+                            <button type="submit">Ignore my IPv6</button>
+                        </form>
+                    </div>
+
+                    <div class="my-1">
+                        <form action="" method="post">
+                            <input type="hidden" name="action" value="fail2ban_unignore_ip"/>
+                            <input type="hidden" name="args[]" value="" class="ip6-input"/>
+                            <button type="submit">Unignore my IPv6</button>
+                        </form>
+                    </div>
+
+                    <div class="my-1">
+                        <form action="" method="post">
+                            <input type="hidden" name="action" value="fail2ban_unban_ip"/>
+                            <input type="hidden" name="args[]" value="" class="ip6-input"/>
+                            <button type="submit">Unban my IPv6</button>
+                        </form>
+                    </div>
+
+                    <div style="margin-bottom: 30px;"></div>
 
                     <div class="my-1">
                         <form action="" method="post">
@@ -64,10 +95,27 @@
             </main>
 
             <footer class="text-sm text-center">
-                IP: <?= $clientIp ?><br>
+                IPv4: <span id="ip4-indicator"></span><br>
+                IPv6: <span id="ip6-indicator"></span><br>
+                IP (server): <?= $clientIp ?><br>
                 PHP: <?= $phpVersion ?>
             </footer>
         </div>
+
+        <script>
+            function on4({ ip }) {
+                document.querySelector('#ip4-indicator').innerText = ip;
+                [...document.querySelectorAll('.ip4-input')].forEach(e => e.value = ip);
+            }
+
+            function on6({ ip }) {
+                document.querySelector('#ip6-indicator').innerText = ip;
+                [...document.querySelectorAll('.ip6-input')].forEach(e => e.value = ip);
+            }
+        </script>
+
+        <script type="application/javascript" src="https://api.ipify.org?format=jsonp&callback=on4" defer></script>
+        <script type="application/javascript" src="https://api6.ipify.org?format=jsonp&callback=on6" defer></script>
     </body>
 
 </html>

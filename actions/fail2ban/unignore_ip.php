@@ -2,13 +2,16 @@
 
 namespace Actions\Fail2Ban;
 
-class IgnoreMeAction implements \Actions\Action {
-    public static $name = "fail2ban_ignore_me";
+class UnignoreIpAction implements \Actions\Action {
+    public static $name = "fail2ban_unignore_ip";
 
     private $ip = "";
 
     function __construct($ip) {
-        $this->ip = $ip;
+        if (count($args) != 1 || !filter_var($args[0], FILTER_VALIDATE_IP)) {
+            throw new Exception("invalid arguments");
+        }
+        $this->ip = $args[0];
     }
 
     private function listJails() {
@@ -43,7 +46,7 @@ class IgnoreMeAction implements \Actions\Action {
         }
 
         foreach ($jails as $jail) {
-            $cmd = "sudo " . FAIL2BAN_PROG . " set " . $jail . " addignoreip " . $this->ip;
+            $cmd = "sudo " . FAIL2BAN_PROG . " set " . $jail . " delignoreip " . $this->ip;
             $output = [];
             $code = -1;
 
